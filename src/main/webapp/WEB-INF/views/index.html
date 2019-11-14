@@ -1,0 +1,41 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Title</title>
+</head>
+    <body>
+        <div th:switch="${developers}">
+            <h2 th:case="null">There is no developer</h2>
+            <div th:case="*">
+                <h2>Developers</h2>
+                <table>
+                    <thead>
+                    <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Title</th>
+                        <th>Salary</th>
+                        <th>Location</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="developer : ${developers}">
+                        <td th:text="${developer.fname}"></td>
+                        <td th:text="${developer.lname}"></td>
+                        <td th:text="${developer.title}"></td>
+                        <td th:text="${developer.salary}"></td>
+                        <td th:text="${developer.location}"></td>
+                        <td><a th:href="@{/edit/{id}(id=${developer.id})}">Edit</a></td>
+                        <td><a th:href="@{/delete/{id}(id=${developer.id})}">Delete</a></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p><a href="/signup">Add a new developer</a></p>
+            <p><a href="/data">Look at an original table</a></p>
+        </div>
+    </body>
+</html>
