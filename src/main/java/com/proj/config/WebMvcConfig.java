@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
@@ -16,6 +15,8 @@ import org.springframework.web.servlet.view.JstlView;
 import org.thymeleaf.spring5.SpringTemplateEngine;
 import org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver;
 import org.thymeleaf.spring5.view.ThymeleafViewResolver;
+
+import javax.sql.DataSource;
 
 @Configuration
 @EnableWebMvc
@@ -64,20 +65,8 @@ public class WebMvcConfig implements WebMvcConfigurer {
     }
 
     @Bean
-    public DriverManagerDataSource getDataSource() {
-
-        DriverManagerDataSource ds = new DriverManagerDataSource();
-        ds.setDriverClassName("com.mysql.jdbc.Driver");
-        ds.setUrl("jdbc:mysql://localhost:3306/example");
-        ds.setUsername("root");
-        ds.setPassword("1234");
-
-        return ds;
-    }
-
-    @Bean
-    public DeveloperDao getDeveloperDao() {
-        return new DeveloperDaoImpl(getDataSource());
+    public DeveloperDao getDeveloperDao(DataSource dataSource) {
+        return new DeveloperDaoImpl(dataSource);
     }
 
     @Override
