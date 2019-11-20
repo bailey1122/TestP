@@ -6,7 +6,7 @@
 </head>
     <body>
         <div th:switch="${developers}">
-            <h2 th:case="null">There is no developer</h2>
+            <h2 th:case="null">Click on the link below:</h2>
             <div th:case="*">
                 <h2>Developers</h2>
                 <table>
@@ -37,5 +37,8 @@
             <p><a href="/signup">Add a new developer</a></p>
             <p><a href="/data">Look at an original table</a></p>
         </div>
+        <form method="POST" th:action="@{/logout}" id="logoutForm">
+            <input type="submit" value="Logout"/>
+        </form>
     </body>
 </html>
