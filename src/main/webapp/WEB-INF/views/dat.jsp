@@ -22,10 +22,10 @@
                     <td>${dev.title}</td>
                     <td>${dev.salary}</td>
                     <td>${dev.location}</td>
-
                 </tr>
             </c:forEach>
         </table>
         <p><a href="/signup">Add a new developer</a></p>
+        <p><a href="/">Return to Home</a></p>
     </body>
 </html>

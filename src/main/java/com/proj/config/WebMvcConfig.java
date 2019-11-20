@@ -20,7 +20,7 @@ import javax.sql.DataSource;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = {"com.proj.controller", "com.proj.dao", "com.proj"})
+@ComponentScan(basePackages = {"com.proj"})
 public class WebMvcConfig implements WebMvcConfigurer {
 
     @Autowired
