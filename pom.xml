@@ -20,7 +20,7 @@
         <tomcat-jasper.version>9.0.1</tomcat-jasper.version>
         <mysql-connector.version>8.0.16</mysql-connector.version>
         <jstl.version>1.2</jstl.version>
-        <spring-web.version>5.2.0.RELEASE</spring-web.version>
+        <spring-web.version>6.0.0</spring-web.version>
         <spring-actuator.version>2.2.0.RELEASE</spring-actuator.version>
     </properties>
 
